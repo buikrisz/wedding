@@ -1,0 +1,35 @@
+#rsvp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#rsvp h1 {
+  margin: 10px;
+}
+
+#rsvp .cancel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#rsvp .rsvpBody,
+#rsvp .rsvpHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#rsvp .rsvpHead {
+  height: 100px;
+  justify-content: flex-start;
+}
+
+#rsvp .rsvpBody {
+  justify-content: center;
+  height: calc(100vh - 100px);
+}

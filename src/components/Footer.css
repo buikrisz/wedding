@@ -1,0 +1,24 @@
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer h3 {
+  font-size: 40px;
+  text-transform: uppercase;
+  margin: 40px;
+}
+
+#footer .separator {
+  width: 200px;
+  border-bottom: 1px solid #565458;
+  margin: 0;
+}
+
+#footer h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 40px;
+}

@@ -1,0 +1,11 @@
+#photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#photos h2 {
+  font-size: 48px;
+  font-weight: 300;
+  font-style: italic;
+}

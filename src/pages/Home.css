@@ -1,0 +1,67 @@
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#home .mainImage {
+  object-fit: cover;
+  width: 1160px;
+  height: 580px;
+}
+
+#home .mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  height: 200px;
+}
+
+#home .mainContent h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+#home .mainContent .date {
+  font-size: 32px;
+}
+
+#home .mainContent .location {
+  font-size: 28px;
+}
+
+#home .separator {
+  height: 80%;
+  width: 0;
+  border-left: 1px solid #565458;
+}
+
+#home .rsvpButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 86px;
+  height: 40px;
+  background-color: #565458;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+#home .rsvpButton:hover {
+  background-color: #454346;
+}
