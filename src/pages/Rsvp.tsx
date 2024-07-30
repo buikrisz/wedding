@@ -4,7 +4,7 @@ import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgr
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Rsvp.css";
-import { RsvpSimpleCard } from "../components";
+import { RsvpFirstCard } from "../components";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -15,7 +15,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
+    backgroundColor: theme.palette.mode === "light" ? "#4e5b51" : "#308fe8",
   },
 }));
 
@@ -39,7 +39,7 @@ export const Rsvp = () => {
         <BorderLinearProgress variant="determinate" value={50} />
       </div>
       <div className="rsvpBody">
-        <RsvpSimpleCard />
+        <RsvpFirstCard />
       </div>
     </div>
   );
