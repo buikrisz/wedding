@@ -1,14 +1,112 @@
-import React from "react";
+import { Dispatch, SetStateAction, useCallback, useMemo, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { CustomTextField } from "./CustomTextField";
 import "./RsvpFirstCard.css";
+import { GuestInformation } from "../../pages/Rsvp";
 
-export const RsvpFirstCard = () => {
+type RsvpFirstCardProps = {
+  guestList: GuestInformation[];
+  setCurrentPage: Dispatch<SetStateAction<number>>;
+  setGuestList: Dispatch<SetStateAction<GuestInformation[]>>;
+};
+
+export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpFirstCardProps) => {
+  const [guestNumber, setGuestNumber] = useState(0);
+  const [validationError, setValidationError] = useState<string>("");
+
+  const mainGuest: GuestInformation = useMemo(() => ({ id: "mainGuest", name: "", attends: false }), []);
+
+  const initialGuestList: GuestInformation[] = useMemo(() => {
+    const guestListFromProps = guestList?.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends }));
+
+    return guestListFromProps?.length !== 0 ? guestListFromProps : [mainGuest];
+  }, [guestList, mainGuest]);
+
+  const [guestFields, setGuestFields] = useState<GuestInformation[]>(initialGuestList ?? [mainGuest]);
+
+  const onRemoveGuestField = useCallback((guestId: string) => {
+    setGuestFields((currentFields) => currentFields.filter((field) => field.id !== guestId));
+    setGuestNumber((prevNumber) => prevNumber - 1);
+  }, []);
+
+  const onAddNewGuest = useCallback(() => {
+    if (guestNumber < 5) {
+      const newId = uuidv4();
+      setGuestFields((currentFields) => [...currentFields, { id: newId, name: "", attends: false }]);
+      setGuestNumber((prevNumber) => prevNumber + 1);
+    }
+  }, [guestNumber]);
+
+  const handleFieldChange = useCallback((id: string, newValue: string) => {
+    setGuestFields((currentFields) => currentFields.map((field) => (field.id === id ? { ...field, name: newValue } : field)));
+  }, []);
+
+  const renderGuestFields = useMemo(() => {
+    return guestFields.map((field) => {
+      if (field.id !== "mainGuest") {
+        return (
+          <div className="removeGuestText" key={field.id}>
+            <CustomTextField
+              id={`guest-${field.id}`}
+              label="Extra vendég"
+              className="guestNameText"
+              color="4e5b51"
+              value={field.name}
+              onChange={(e) => handleFieldChange(field.id, e.target.value)}
+            />
+            <button className="rsvpFirstCancelCustomField" onClick={() => onRemoveGuestField(field.id)}>
+              X
+            </button>
+          </div>
+        );
+      } else {
+        return undefined;
+      }
+    });
+  }, [guestFields, handleFieldChange, onRemoveGuestField]);
+
+  const validateFields = useCallback(() => {
+    const isMainGuestNameEmpty = guestFields.find((field) => field.id === "mainGuest" && !field.name.trim());
+
+    if (isMainGuestNameEmpty) {
+      setValidationError("Kérlek add meg a neved!");
+      return false;
+    } else {
+      setValidationError("");
+      return true;
+    }
+  }, [guestFields]);
+
+  const onNextPageClick = useCallback(() => {
+    const isValidated = validateFields();
+
+    if (isValidated) {
+      setCurrentPage((currentPage) => currentPage + 1);
+      setGuestList(guestFields.filter((field) => field.name?.length !== 0).map((field) => ({ id: field.id, name: field.name, attends: field.attends })));
+    }
+  }, [guestFields, setCurrentPage, setGuestList, validateFields]);
+
   return (
     <div className="simpleCard">
       <h3 className="title">Dominika & Krisztián Esküvő</h3>
       <h3 className="subtitle">Kérjük jelezz vissza nekünk, hogy részt tudsz-e venni családoddal/pároddal esküvőnkön, az alábbi adatokat kitöltve.</h3>
-      <CustomTextField required id="outlined-required" label="Teljes név" className="nameText" color="4e5b51" />
-      <button>Tovább</button>
+      <CustomTextField
+        required
+        id="outlined-required"
+        label="Teljes név"
+        className="nameText"
+        color="4e5b51"
+        value={guestFields.find((field) => field.id === "mainGuest")?.name || ""}
+        onChange={(e) => handleFieldChange("mainGuest", e.target.value)}
+      />
+      {validationError != null && validationError.length > 0 && <h4 className="validationError">*{validationError}</h4>}
+      {renderGuestFields}
+      <button className="rsvpActionButton" onClick={onAddNewGuest}>
+        Extra vendég hozzáadása
+      </button>
+      <button className="rsvpActionButton" onClick={onNextPageClick}>
+        Tovább
+      </button>
     </div>
   );
 };

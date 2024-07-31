@@ -1,10 +1,9 @@
-import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Rsvp.css";
-import { RsvpFirstCard } from "../components";
+import { RsvpFirstCard, RsvpSecondCard } from "../components";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -19,8 +18,21 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
+export type GuestInformation = {
+  id: string;
+  name: string;
+  attends: boolean;
+};
+
 export const Rsvp = () => {
   const navigate = useNavigate();
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const [guestList, setGuestList] = useState<GuestInformation[]>([]);
+
+  useEffect(() => {
+    console.log(">>>", guestList);
+  }, [guestList]);
 
   const handleClick = useCallback(
     (path: string) => {
@@ -28,6 +40,22 @@ export const Rsvp = () => {
     },
     [navigate]
   );
+
+  const renderRsvpCards = useCallback(() => {
+    switch (currentPage) {
+      case 1:
+        return <RsvpSecondCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
+      case 2:
+        return <div>2</div>;
+      case 3:
+        return <div>3</div>;
+      case 4:
+        return <div>4</div>;
+
+      default:
+        return <RsvpFirstCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
+    }
+  }, [currentPage, guestList]);
 
   return (
     <div id="rsvp">
@@ -38,9 +66,7 @@ export const Rsvp = () => {
         <h1>RSVP</h1>
         <BorderLinearProgress variant="determinate" value={50} />
       </div>
-      <div className="rsvpBody">
-        <RsvpFirstCard />
-      </div>
+      <div className="rsvpBody">{renderRsvpCards()}</div>
     </div>
   );
 };

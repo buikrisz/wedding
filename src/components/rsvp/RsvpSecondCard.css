@@ -1,0 +1,35 @@
+.rsvpActionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.attendanceConfirmation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attendanceConfirmation .attendanceConfirmationButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.attendanceConfirmation .attendanceConfirmationButtons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  color: #4e5b51;
+  background-color: #fff;
+  border: 1px solid #4e5b51;
+}
+
+.attendanceConfirmation .attendanceConfirmationButtons .selected {
+  color: #fff;
+  background-color: #4e5b51;
+}
