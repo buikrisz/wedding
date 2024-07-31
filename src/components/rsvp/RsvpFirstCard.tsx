@@ -11,7 +11,6 @@ type RsvpFirstCardProps = {
 };
 
 export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpFirstCardProps) => {
-  const [guestNumber, setGuestNumber] = useState(0);
   const [validationError, setValidationError] = useState<string>("");
 
   const mainGuest: GuestInformation = useMemo(() => ({ id: "mainGuest", name: "", attends: false }), []);
@@ -26,16 +25,14 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpF
 
   const onRemoveGuestField = useCallback((guestId: string) => {
     setGuestFields((currentFields) => currentFields.filter((field) => field.id !== guestId));
-    setGuestNumber((prevNumber) => prevNumber - 1);
   }, []);
 
   const onAddNewGuest = useCallback(() => {
-    if (guestNumber < 5) {
+    if (guestFields?.length < 5) {
       const newId = uuidv4();
       setGuestFields((currentFields) => [...currentFields, { id: newId, name: "", attends: false }]);
-      setGuestNumber((prevNumber) => prevNumber + 1);
     }
-  }, [guestNumber]);
+  }, [guestFields?.length]);
 
   const handleFieldChange = useCallback((id: string, newValue: string) => {
     setGuestFields((currentFields) => currentFields.map((field) => (field.id === id ? { ...field, name: newValue } : field)));
