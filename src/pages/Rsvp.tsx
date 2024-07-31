@@ -1,9 +1,9 @@
 import { styled } from "@mui/material/styles";
 import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
-import { useCallback, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Rsvp.css";
-import { RsvpFirstCard, RsvpSecondCard } from "../components";
+import { RsvpFirstCard, RsvpSecondCard, RsvpThirdCard } from "../components";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -18,10 +18,17 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
+export type RsvpCardProps = {
+  guestList: GuestInformation[];
+  setCurrentPage: Dispatch<SetStateAction<number>>;
+  setGuestList: Dispatch<SetStateAction<GuestInformation[]>>;
+};
+
 export type GuestInformation = {
   id: string;
   name: string;
   attends: boolean;
+  allergies: string[];
 };
 
 export const Rsvp = () => {
@@ -46,7 +53,7 @@ export const Rsvp = () => {
       case 1:
         return <RsvpSecondCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
       case 2:
-        return <div>2</div>;
+        return <RsvpThirdCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
       case 3:
         return <div>3</div>;
       case 4:

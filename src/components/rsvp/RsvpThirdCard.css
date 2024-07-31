@@ -1,0 +1,32 @@
+.allergenListWithName {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.allergenListWithName .allergenList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.allergenListWithName .allergenList button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 50px;
+  line-height: 20px;
+  color: #4e5b51;
+  background-color: #fff;
+  border: 1px solid #4e5b51;
+}
+
+.allergenListWithName .allergenList .selected,
+.allergenListWithName .allergenList button:hover {
+  color: #fff;
+  background-color: #4e5b51;
+}

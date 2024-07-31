@@ -1,22 +1,18 @@
-import { Dispatch, SetStateAction, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { CustomTextField } from "./CustomTextField";
 import "./RsvpFirstCard.css";
-import { GuestInformation } from "../../pages/Rsvp";
+import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
 
-type RsvpFirstCardProps = {
-  guestList: GuestInformation[];
-  setCurrentPage: Dispatch<SetStateAction<number>>;
-  setGuestList: Dispatch<SetStateAction<GuestInformation[]>>;
-};
-
-export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpFirstCardProps) => {
+export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
   const [validationError, setValidationError] = useState<string>("");
 
-  const mainGuest: GuestInformation = useMemo(() => ({ id: "mainGuest", name: "", attends: false }), []);
+  const mainGuest: GuestInformation = useMemo(() => ({ id: "mainGuest", name: "", attends: false, allergies: ["none"] }), []);
 
   const initialGuestList: GuestInformation[] = useMemo(() => {
-    const guestListFromProps = guestList?.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends }));
+    const guestListFromProps = guestList?.map(
+      (guest): GuestInformation => ({ id: guest.id, name: guest.name, attends: guest.attends, allergies: guest.allergies })
+    );
 
     return guestListFromProps?.length !== 0 ? guestListFromProps : [mainGuest];
   }, [guestList, mainGuest]);
@@ -30,7 +26,7 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpF
   const onAddNewGuest = useCallback(() => {
     if (guestFields?.length < 5) {
       const newId = uuidv4();
-      setGuestFields((currentFields) => [...currentFields, { id: newId, name: "", attends: false }]);
+      setGuestFields((currentFields) => [...currentFields, { id: newId, name: "", attends: false, allergies: ["none"] }]);
     }
   }, [guestFields?.length]);
 
@@ -79,7 +75,11 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpF
 
     if (isValidated) {
       setCurrentPage((currentPage) => currentPage + 1);
-      setGuestList(guestFields.filter((field) => field.name?.length !== 0).map((field) => ({ id: field.id, name: field.name, attends: field.attends })));
+      setGuestList(
+        guestFields
+          .filter((field) => field.name?.length !== 0)
+          .map((field) => ({ id: field.id, name: field.name, attends: field.attends, allergies: field.allergies }))
+      );
     }
   }, [guestFields, setCurrentPage, setGuestList, validateFields]);
 

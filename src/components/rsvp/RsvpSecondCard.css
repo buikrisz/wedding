@@ -29,7 +29,8 @@
   border: 1px solid #4e5b51;
 }
 
-.attendanceConfirmation .attendanceConfirmationButtons .selected {
+.attendanceConfirmation .attendanceConfirmationButtons .selected,
+.attendanceConfirmation .attendanceConfirmationButtons button:hover {
   color: #fff;
   background-color: #4e5b51;
 }

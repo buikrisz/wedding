@@ -1,14 +1,8 @@
-import { Dispatch, SetStateAction, useCallback, useState } from "react";
-import { GuestInformation } from "../../pages/Rsvp";
+import { useCallback, useState } from "react";
+import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
 import "./RsvpSecondCard.css";
 
-type RsvpSecondCardProps = {
-  guestList: GuestInformation[];
-  setCurrentPage: Dispatch<SetStateAction<number>>;
-  setGuestList: Dispatch<SetStateAction<GuestInformation[]>>;
-};
-
-export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: RsvpSecondCardProps) => {
+export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
   const [currentGuestList, setCurrentGuestList] = useState<GuestInformation[]>(guestList ?? []);
 
   const onAcceptanceClicked = useCallback(
@@ -40,12 +34,18 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
 
   const onPrevPageClick = useCallback(() => {
     setCurrentPage((currentPage) => (currentPage === 0 ? currentPage : currentPage - 1));
-    setGuestList(currentGuestList.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends })));
+    setGuestList(currentGuestList.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends, allergies: guest.allergies })));
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   const onNextPageClick = useCallback(() => {
-    setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 1));
-    setGuestList(currentGuestList.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends })));
+    const isAnyoneAttending = currentGuestList?.some((guest) => guest.attends);
+
+    if (isAnyoneAttending) {
+      setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 1));
+    } else {
+      setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 2));
+    }
+    setGuestList(currentGuestList.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends, allergies: guest.allergies })));
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   return (
