@@ -34,7 +34,17 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
 
   const onPrevPageClick = useCallback(() => {
     setCurrentPage((currentPage) => (currentPage === 0 ? currentPage : currentPage - 1));
-    setGuestList(currentGuestList.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends, allergies: guest.allergies })));
+    setGuestList(
+      currentGuestList.map((guest) => ({
+        id: guest.id,
+        name: guest.name,
+        attends: guest.attends,
+        allergies: guest.allergies,
+        diet: guest.diet,
+        accomodation: guest.accomodation,
+        music: guest.music,
+      }))
+    );
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   const onNextPageClick = useCallback(() => {
@@ -45,7 +55,17 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
     } else {
       setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 2));
     }
-    setGuestList(currentGuestList.map((guest) => ({ id: guest.id, name: guest.name, attends: guest.attends, allergies: guest.allergies })));
+    setGuestList(
+      currentGuestList.map((guest) => ({
+        id: guest.id,
+        name: guest.name,
+        attends: guest.attends,
+        allergies: guest.allergies,
+        diet: guest.diet,
+        accomodation: guest.accomodation,
+        music: guest.music,
+      }))
+    );
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   return (

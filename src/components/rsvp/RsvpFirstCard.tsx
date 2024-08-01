@@ -7,11 +7,22 @@ import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
 export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
   const [validationError, setValidationError] = useState<string>("");
 
-  const mainGuest: GuestInformation = useMemo(() => ({ id: "mainGuest", name: "", attends: false, allergies: ["none"] }), []);
+  const mainGuest: GuestInformation = useMemo(
+    () => ({ id: "mainGuest", name: "", attends: false, allergies: ["none"], diet: "", accomodation: false, music: "" }),
+    []
+  );
 
   const initialGuestList: GuestInformation[] = useMemo(() => {
     const guestListFromProps = guestList?.map(
-      (guest): GuestInformation => ({ id: guest.id, name: guest.name, attends: guest.attends, allergies: guest.allergies })
+      (guest): GuestInformation => ({
+        id: guest.id,
+        name: guest.name,
+        attends: guest.attends,
+        allergies: guest.allergies,
+        diet: guest.diet,
+        accomodation: guest.accomodation,
+        music: guest.music,
+      })
     );
 
     return guestListFromProps?.length !== 0 ? guestListFromProps : [mainGuest];
@@ -26,7 +37,10 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
   const onAddNewGuest = useCallback(() => {
     if (guestFields?.length < 5) {
       const newId = uuidv4();
-      setGuestFields((currentFields) => [...currentFields, { id: newId, name: "", attends: false, allergies: ["none"] }]);
+      setGuestFields((currentFields) => [
+        ...currentFields,
+        { id: newId, name: "", attends: false, allergies: ["none"], diet: "", accomodation: false, music: "" },
+      ]);
     }
   }, [guestFields?.length]);
 
@@ -78,7 +92,15 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
       setGuestList(
         guestFields
           .filter((field) => field.name?.length !== 0)
-          .map((field) => ({ id: field.id, name: field.name, attends: field.attends, allergies: field.allergies }))
+          .map((field) => ({
+            id: field.id,
+            name: field.name,
+            attends: field.attends,
+            allergies: field.allergies,
+            diet: field.diet,
+            accomodation: field.accomodation,
+            music: field.music,
+          }))
       );
     }
   }, [guestFields, setCurrentPage, setGuestList, validateFields]);

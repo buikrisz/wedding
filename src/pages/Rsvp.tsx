@@ -3,7 +3,7 @@ import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgr
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Rsvp.css";
-import { RsvpFirstCard, RsvpSecondCard, RsvpThirdCard } from "../components";
+import { RsvpFirstCard, RsvpFourthCard, RsvpSecondCard, RsvpThirdCard } from "../components";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -22,6 +22,7 @@ export type RsvpCardProps = {
   guestList: GuestInformation[];
   setCurrentPage: Dispatch<SetStateAction<number>>;
   setGuestList: Dispatch<SetStateAction<GuestInformation[]>>;
+  cardType?: keyof GuestInformation;
 };
 
 export type GuestInformation = {
@@ -29,6 +30,9 @@ export type GuestInformation = {
   name: string;
   attends: boolean;
   allergies: string[];
+  diet: string;
+  accomodation: boolean;
+  music: string;
 };
 
 export const Rsvp = () => {
@@ -55,9 +59,9 @@ export const Rsvp = () => {
       case 2:
         return <RsvpThirdCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
       case 3:
-        return <div>3</div>;
+        return <RsvpFourthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} cardType="diet" />;
       case 4:
-        return <div>4</div>;
+        return <RsvpFourthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} cardType="music" />;
 
       default:
         return <RsvpFirstCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
