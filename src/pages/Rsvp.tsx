@@ -3,7 +3,7 @@ import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgr
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Rsvp.css";
-import { RsvpFirstCard, RsvpFourthCard, RsvpSecondCard, RsvpThirdCard } from "../components";
+import { RsvpFifthCard, RsvpFirstCard, RsvpFourthCard, RsvpSecondCard, RsvpThirdCard } from "../components";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -61,6 +61,8 @@ export const Rsvp = () => {
       case 3:
         return <RsvpFourthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} cardType="diet" />;
       case 4:
+        return <RsvpFifthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
+      case 5:
         return <RsvpFourthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} cardType="music" />;
 
       default:
