@@ -35,6 +35,22 @@
   width: 40%;
 }
 
+#location .homeProgramDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 700px;
+  font-size: 24px;
+  letter-spacing: 1.2px;
+  padding-bottom: 40px;
+}
+
+#location .homeProgramDetails h5 {
+  margin: 0;
+}
+
 @media (max-width: 800px) {
   #location .homeProgram {
     width: 450px;
@@ -44,6 +60,13 @@
   #location .mapContainer {
     height: 400px;
     width: 450px;
+  }
+
+  #location .homeProgramDetails {
+    gap: 15px;
+    width: 450px;
+    font-size: 20px;
+    padding-bottom: 30px;
   }
 }
 
@@ -55,6 +78,10 @@
 
   #location .mapContainer {
     height: 400px;
+    width: 370px;
+  }
+
+  #location .homeProgramDetails {
     width: 370px;
   }
 }
