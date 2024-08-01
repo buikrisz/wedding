@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
-import { Home, Photos, Program, Rsvp } from "./pages";
+import { Home, Location, Photos, Program, Rsvp } from "./pages";
 import { Layout } from "./components";
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/fotok" element={<Photos />} />
             <Route path="/program" element={<Program />} />
-            <Route path="/rsvp" element={<Rsvp />} />
+            <Route path="/megkozelites" element={<Location />} />
           </Routes>
         </Layout>
       )}

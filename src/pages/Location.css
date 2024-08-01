@@ -1,0 +1,60 @@
+#location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#location .mapContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 700px;
+}
+
+#location .homeProgram {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  width: 700px;
+  border-top: 1px solid #4e5b5134;
+  font-size: 24px;
+}
+
+#location .homeProgram h4 {
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+#location .homeProgram .homeProgramLeft {
+  text-align: right;
+  width: 40%;
+}
+
+@media (max-width: 800px) {
+  #location .homeProgram {
+    width: 450px;
+    font-size: 20px;
+  }
+
+  #location .mapContainer {
+    height: 400px;
+    width: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+  #location .homeProgram {
+    width: 370px;
+    font-size: 16px;
+  }
+
+  #location .mapContainer {
+    height: 400px;
+    width: 370px;
+  }
+}
