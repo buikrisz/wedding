@@ -7,3 +7,15 @@
 #program img {
   width: 700px;
 }
+
+@media (max-width: 800px) {
+  #program img {
+    width: 480px;
+  }
+}
+
+@media (max-width: 500px) {
+  #program img {
+    width: 375px;
+  }
+}

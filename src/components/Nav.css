@@ -31,3 +31,17 @@
 #navbar ul li:hover {
   border-bottom: 2px solid #4e5b51;
 }
+
+@media (max-width: 800px) {
+  #navbar ul {
+    flex-wrap: wrap;
+    width: 500px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 500px) {
+  #navbar ul {
+    width: 375px;
+  }
+}

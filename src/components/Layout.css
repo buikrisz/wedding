@@ -16,6 +16,7 @@
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 4px;
+  text-align: center;
 }
 
 .details1,
@@ -27,4 +28,40 @@
   line-height: 20px;
   font-weight: 500;
   margin: 0 0 10px 0;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    width: 780px;
+    font-size: 50px;
+  }
+
+  .details1,
+  .details2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .title {
+    width: 480px;
+    font-size: 50px;
+  }
+
+  .details1,
+  .details2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    width: 370px;
+    font-size: 42px;
+  }
+
+  .details1,
+  .details2 {
+    font-size: 18px;
+  }
 }

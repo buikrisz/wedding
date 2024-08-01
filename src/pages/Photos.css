@@ -8,4 +8,17 @@
   font-size: 48px;
   font-weight: 300;
   font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  #photos h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  #photos h2 {
+    font-size: 34px;
+  }
 }

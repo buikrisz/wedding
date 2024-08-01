@@ -171,7 +171,7 @@
 
 @media (max-width: 1200px) {
   #home .mainImage {
-    width: 800px;
+    width: 780px;
     height: 500px;
   }
 
@@ -235,7 +235,7 @@
 
 @media (max-width: 500px) {
   #home .mainImage {
-    width: 375px;
+    width: 370px;
     height: 250px;
   }
 
