@@ -61,10 +61,6 @@ export const Rsvp = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [guestList, setGuestList] = useState<GuestInformation[]>([]);
 
-  useEffect(() => {
-    console.log(">>>", guestList);
-  }, [guestList]);
-
   const handleClick = useCallback(
     (path: string) => {
       navigate(path);

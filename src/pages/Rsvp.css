@@ -13,8 +13,13 @@
 
 #rsvp .cancel {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background-color: #4e5b51;
+  color: #fff;
 }
 
 #rsvp .rsvpBody,
