@@ -48,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 86px;
+  width: 140px;
   height: 40px;
   background-color: #4e5b51;
   color: #fff;
@@ -64,4 +64,225 @@
 
 #home .rsvpButton:hover {
   background-color: #454346;
+}
+
+#home .welcomeText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  width: 480px;
+  text-align: center;
+}
+
+#home .welcomeText h5 {
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 1.5px;
+}
+
+#home .homeProgram {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  width: 700px;
+  border-top: 1px solid #4e5b5134;
+  font-size: 24px;
+}
+
+#home .homeProgram.lastProgram {
+  border-bottom: 1px solid #4e5b5134;
+}
+
+#home .homeProgram h4 {
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+#home .homeProgram .homeProgramLeft {
+  text-align: right;
+  width: 40%;
+}
+
+#home .dressCodeSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#home .dressCodeSection h3 {
+  font-size: 50px;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#home .dressCodeSection h4 {
+  width: 700px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 1.5px;
+}
+
+#home .dressCodeColorsSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  height: 100px;
+}
+
+#home .dressCodeColorsSection .dressCodeColor {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+#home .dressCodeColorsSection .dressCodeColor.dressCodeColor1 {
+  background-color: #283a2e;
+}
+
+#home .dressCodeColorsSection .dressCodeColor.dressCodeColor2 {
+  background-color: #4e5b51;
+}
+
+#home .dressCodeColorsSection .dressCodeColor.dressCodeColor3 {
+  background-color: #797b62;
+}
+
+#home .dressCodeColorsSection .dressCodeColor.dressCodeColor4 {
+  background-color: #80735c;
+}
+
+#home .dressCodeColorsSection .dressCodeColor.dressCodeColor5 {
+  background-color: #b19d7f;
+}
+
+#home .dressCodeColorsSection .dressCodeColor.dressCodeColor6 {
+  background-color: #bdb4a8;
+}
+
+@media (max-width: 1200px) {
+  #home .mainImage {
+    width: 800px;
+    height: 500px;
+  }
+
+  #home .mainContent {
+    gap: 80px;
+  }
+
+  #home .mainContent .date {
+    font-size: 24px;
+  }
+
+  #home .mainContent .location {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  #home .mainImage {
+    width: 500px;
+    height: 300px;
+  }
+
+  #home .mainContent {
+    gap: 40px;
+  }
+
+  #home .mainContent h2 {
+    width: 200px;
+  }
+
+  #home .mainContent .date {
+    font-size: 20px;
+  }
+
+  #home .mainContent .location {
+    font-size: 14px;
+  }
+
+  #home .homeProgram {
+    width: 450px;
+    font-size: 20px;
+  }
+
+  #home .dressCodeSection h3 {
+    font-size: 42px;
+  }
+
+  #home .dressCodeSection h4 {
+    width: 500px;
+    font-size: 18px;
+  }
+
+  #home .dressCodeColorsSection {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    height: 200px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 500px) {
+  #home .mainImage {
+    width: 375px;
+    height: 250px;
+  }
+
+  #home .mainContent {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #home .mainContent .separator {
+    display: none;
+  }
+
+  #home .mainContent h2 {
+    width: 200px;
+  }
+
+  #home .mainContent .date {
+    font-size: 20px;
+  }
+
+  #home .mainContent .location {
+    font-size: 18px;
+  }
+
+  #home .welcomeText {
+    width: 375px;
+  }
+
+  #home .homeProgram {
+    width: 375px;
+    font-size: 16px;
+  }
+
+  #home .dressCodeSection h3 {
+    font-size: 36px;
+  }
+
+  #home .dressCodeSection h4 {
+    width: 375px;
+    font-size: 14px;
+  }
+
+  #home .dressCodeColorsSection {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    height: 200px;
+    width: 350px;
+  }
 }

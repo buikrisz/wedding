@@ -25,8 +25,11 @@ export const Nav = () => {
         <li className={pathname === "/program" ? "selected" : ""} onClick={() => handleClick("/program")}>
           Program
         </li>
+        <li className={pathname === "/megkozelites" ? "selected" : ""} onClick={() => handleClick("/megkozelites")}>
+          Megközelítés
+        </li>
         <li className={pathname === "/rsvp" ? "selected" : ""} onClick={() => handleClick("/rsvp")}>
-          RSVP
+          Visszajelzés
         </li>
       </ul>
     </div>

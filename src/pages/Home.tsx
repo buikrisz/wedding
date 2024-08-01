@@ -30,8 +30,31 @@ export const Home = () => {
         </h2>
       </div>
       <button onClick={() => handleClick("/rsvp")} className="rsvpButton">
-        RSVP
+        Visszajelzés
       </button>
+      <div className="welcomeText">
+        <h5>Kedves Családunk és Barátaink! Ezúton szeretnénk meghívni az esküvőnkre, reméljük Velünk tudsz tartani. Várjuk a visszajelzésed!</h5>
+      </div>
+      <div className="homeProgram">
+        <h4 className="homeProgramLeft">1:00 PM - 2:00 PM</h4>
+        <h4>Egyházi Szertartás - Jáki Kápolna</h4>
+      </div>
+      <div className="homeProgram lastProgram">
+        <h4 className="homeProgramLeft">3:30 PM - 5:00 AM</h4>
+        <h4>Polgári Szertartás & Vacsora & Lagzi - Levendulás, Inárcs</h4>
+      </div>
+      <div className="dressCodeSection">
+        <h3>Dresscode:</h3>
+        <h4>Esküvönkön az alábbi színek fognak dominálni. Örömmel vesszük, ha a ti öltözéketek is egyezik az esküvőnk tematikájával.</h4>
+        <div className="dressCodeColorsSection">
+          <div className="dressCodeColor dressCodeColor1"></div>
+          <div className="dressCodeColor dressCodeColor2"></div>
+          <div className="dressCodeColor dressCodeColor3"></div>
+          <div className="dressCodeColor dressCodeColor4"></div>
+          <div className="dressCodeColor dressCodeColor5"></div>
+          <div className="dressCodeColor dressCodeColor6"></div>
+        </div>
+      </div>
     </div>
   );
 };

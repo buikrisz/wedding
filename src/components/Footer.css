@@ -6,9 +6,11 @@
 }
 
 #footer h3 {
-  font-size: 40px;
+  font-size: 60px;
+  font-weight: 300;
   text-transform: uppercase;
-  margin: 40px;
+  margin: 20px;
+  letter-spacing: 3px;
 }
 
 #footer .separator {
@@ -18,7 +20,7 @@
 }
 
 #footer h4 {
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
-  margin: 40px;
+  margin: 20px;
 }

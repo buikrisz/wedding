@@ -1,0 +1,9 @@
+#program {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#program img {
+  width: 700px;
+}
