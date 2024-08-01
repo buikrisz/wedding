@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import "./RsvpSecondCard.css";
 
 export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
@@ -71,7 +72,10 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
   return (
     <div className="simpleCard">
       <h3 className="title">Házasságkötésünk napja</h3>
-      <h3 className="subtitle">IKON - 2024. Október 11, Péntek - 13:00</h3>
+      <div className="subtitleWithIcon">
+        <FaRegCalendarAlt />
+        <h3 className="subtitle">2024. Október 11, Péntek - 13:00</h3>
+      </div>
       <h3 className="subtitle">
         Kedves Családunk és Barátaink! Ezúton szeretnénk meghívni az esküvőnkre, reméljük Velünk tudsz tartani. Várjuk a visszajelzésed!
       </h3>
