@@ -82,13 +82,15 @@ export const Rsvp = () => {
         return <RsvpFourthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} cardType="music" />;
       case 6:
         return <RsvpFinalCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
+      case 7:
+        return <RsvpFinalCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
 
       default:
         return <RsvpFirstCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
     }
   }, [currentPage, guestList]);
 
-  const progressBarValue = useMemo(() => (100 / 7) * (currentPage + 1), [currentPage]);
+  const progressBarValue = useMemo(() => (100 / 8) * (currentPage + 1), [currentPage]);
 
   return (
     <div id="rsvp">

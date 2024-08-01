@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   gap: 40px;
   min-height: 400px;
   min-width: 550px;
   max-width: 800px;
+}
+
+.simpleCard.finalCard .rsvpActionButtons {
+  width: 100%;
 }
 
 .simpleCard.finalCard .finalGuestCards {

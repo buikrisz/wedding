@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import emailjs from "@emailjs/browser";
 import "./RsvpFinalCard.css";
 import apiKey from "../../emailkey";
+import CircularProgress from "@mui/material/CircularProgress";
 
 type FormResult = {
   name0: string;
@@ -42,8 +43,10 @@ type FormResult = {
   music4: string;
 };
 
-export const RsvpFinalCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
+export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isAnimationStarted, setIsAnimationStarted] = useState(false);
+
   const renderContent = useCallback(() => {
     return guestList.map((guest) => {
       return (
@@ -77,13 +80,16 @@ export const RsvpFinalCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
   }, [guestList, setCurrentPage]);
 
   const onNextPageClick = useCallback(() => {
+    setCurrentPage((currentPage) => (currentPage === 0 ? currentPage : currentPage + 1));
     setFormSubmitted(true);
-  }, []);
+  }, [setCurrentPage]);
 
   useEffect(() => {
     if (formSubmitted) {
-      //setAnimationStarted(true);
+      setIsAnimationStarted(true);
       const formResult: FormResult = {} as FormResult;
+
+      formResult[`name` as keyof FormResult] = `${guestList[0].name}`;
 
       guestList.forEach((guest) => {
         formResult[`name${guestList.indexOf(guest)}` as keyof FormResult] = `Név: ${guest.name}`;
@@ -105,18 +111,20 @@ export const RsvpFinalCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
       emailjs
         .send(apiKey.SERVICE_ID, apiKey.SERVICE_REQUEST_TEMPLATE_ID, formResult, apiKey.PUBLIC_KEY)
         .then(() => {
-          console.log("Email sent");
-          //setMailSent(true);
+          setIsAnimationStarted(false);
+          console.log("Email elküldve");
         })
         .catch((err: string) => {
+          setIsAnimationStarted(false);
+          alert("Hiba történt. Kérlek próbáld újra később.");
           console.log(err);
         });
     }
   }, [formSubmitted, guestList]);
 
   return formSubmitted ? (
-    <div className="simpleCard finalCard">
-      <h3 className="title">Köszönjük a visszajelzést!</h3>
+    <div className="simpleCard finalCard formSubmitted">
+      {isAnimationStarted ? <CircularProgress color="inherit" /> : <h3 className="title">Köszönjük a visszajelzést!</h3>}
     </div>
   ) : (
     <div className="simpleCard finalCard">
