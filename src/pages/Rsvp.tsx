@@ -1,9 +1,9 @@
 import { styled } from "@mui/material/styles";
 import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
-import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Rsvp.css";
-import { RsvpFifthCard, RsvpFirstCard, RsvpFourthCard, RsvpSecondCard, RsvpThirdCard } from "../components";
+import { RsvpFifthCard, RsvpFinalCard, RsvpFirstCard, RsvpFourthCard, RsvpSecondCard, RsvpThirdCard } from "../components";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -35,6 +35,26 @@ export type GuestInformation = {
   music: string;
 };
 
+export type AllergenList = {
+  none: string;
+  lactose: string;
+  gluten: string;
+  nuts: string;
+  egg: string;
+  fish: string;
+};
+
+export const allergenList = {
+  none: "Nincs",
+  lactose: "Laktóz",
+  milk: "Tej",
+  gluten: "Glutén",
+  nuts: "Mogyoró és diófélék",
+  egg: "Tojás",
+  soy: "Szója",
+  fish: "Tenger gyümölcsei & halak",
+};
+
 export const Rsvp = () => {
   const navigate = useNavigate();
 
@@ -64,11 +84,15 @@ export const Rsvp = () => {
         return <RsvpFifthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
       case 5:
         return <RsvpFourthCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} cardType="music" />;
+      case 6:
+        return <RsvpFinalCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
 
       default:
         return <RsvpFirstCard setCurrentPage={setCurrentPage} guestList={guestList} setGuestList={setGuestList} />;
     }
   }, [currentPage, guestList]);
+
+  const progressBarValue = useMemo(() => (100 / 7) * (currentPage + 1), [currentPage]);
 
   return (
     <div id="rsvp">
@@ -77,7 +101,7 @@ export const Rsvp = () => {
       </button>
       <div className="rsvpHead">
         <h1>RSVP</h1>
-        <BorderLinearProgress variant="determinate" value={50} />
+        <BorderLinearProgress variant="determinate" value={progressBarValue} />
       </div>
       <div className="rsvpBody">{renderRsvpCards()}</div>
     </div>

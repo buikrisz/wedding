@@ -51,9 +51,9 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
     const isAnyoneAttending = currentGuestList?.some((guest) => guest.attends);
 
     if (isAnyoneAttending) {
-      setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 1));
+      setCurrentPage((currentPage) => currentPage + 1);
     } else {
-      setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 2));
+      setCurrentPage(6);
     }
     setGuestList(
       currentGuestList.map((guest) => ({

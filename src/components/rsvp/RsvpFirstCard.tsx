@@ -107,7 +107,7 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
 
   return (
     <div className="simpleCard">
-      <h3 className="title">Dominika & Krisztián Esküvő</h3>
+      <h3 className="title">Dominika & Krisztián Esküvője</h3>
       <h3 className="subtitle">Kérjük jelezz vissza nekünk, hogy részt tudsz-e venni családoddal/pároddal esküvőnkön, az alábbi adatokat kitöltve.</h3>
       <CustomTextField
         required

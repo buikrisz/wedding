@@ -18,23 +18,25 @@ export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardTy
 
   const renderContent = useCallback(() => {
     if (cardType === "diet") {
-      return currentGuestList?.map((guest) => {
-        return (
-          <div className="dietConfirmation">
-            <h3>{guest.name}</h3>
-            <div className="dietTextArea">
-              <CustomTextField
-                id="outlined-multiline-static"
-                label="Speciális étrend"
-                className="guestDiet"
-                color="4e5b51"
-                value={guest.diet}
-                onChange={(e) => handleFieldChange(guest.id, e.target.value)}
-              />
+      return currentGuestList
+        ?.filter((guest) => guest.attends)
+        .map((guest) => {
+          return (
+            <div className="dietConfirmation">
+              <h3>{guest.name}</h3>
+              <div className="dietTextArea">
+                <CustomTextField
+                  id="outlined-multiline-static"
+                  label="Speciális étrend"
+                  className="guestDiet"
+                  color="4e5b51"
+                  value={guest.diet}
+                  onChange={(e) => handleFieldChange(guest.id, e.target.value)}
+                />
+              </div>
             </div>
-          </div>
-        );
-      });
+          );
+        });
     } else if (cardType === "music") {
       return (
         <div className="dietConfirmation">
@@ -69,7 +71,7 @@ export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardTy
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   const onNextPageClick = useCallback(() => {
-    setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 1));
+    setCurrentPage((currentPage) => currentPage + 1);
     setGuestList(
       currentGuestList.map((guest) => ({
         id: guest.id,

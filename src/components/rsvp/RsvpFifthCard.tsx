@@ -15,21 +15,23 @@ export const RsvpFifthCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
   );
 
   const renderContent = useCallback(() => {
-    return currentGuestList?.map((guest) => {
-      return (
-        <div className="accomodationConfirmation">
-          <h3>{guest.name}</h3>
-          <div className="accomodationConfirmationButtons">
-            <button onClick={() => onAcceptanceClicked(guest.id, true)} className={`accomodationAccept${guest.accomodation ? " selected" : ""}`}>
-              Szeretnék szállást
-            </button>
-            <button onClick={() => onAcceptanceClicked(guest.id, false)} className={`accomodationDecline${!guest.accomodation ? " selected" : ""}`}>
-              Nem szeretnék szállást
-            </button>
+    return currentGuestList
+      ?.filter((guest) => guest.attends)
+      .map((guest) => {
+        return (
+          <div className="accomodationConfirmation">
+            <h3>{guest.name}</h3>
+            <div className="accomodationConfirmationButtons">
+              <button onClick={() => onAcceptanceClicked(guest.id, true)} className={`accomodationAccept${guest.accomodation ? " selected" : ""}`}>
+                Szeretnék szállást
+              </button>
+              <button onClick={() => onAcceptanceClicked(guest.id, false)} className={`accomodationDecline${!guest.accomodation ? " selected" : ""}`}>
+                Nem szeretnék szállást
+              </button>
+            </div>
           </div>
-        </div>
-      );
-    });
+        );
+      });
   }, [currentGuestList, onAcceptanceClicked]);
 
   const onPrevPageClick = useCallback(() => {
@@ -48,7 +50,7 @@ export const RsvpFifthCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   const onNextPageClick = useCallback(() => {
-    setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 1));
+    setCurrentPage((currentPage) => currentPage + 1);
     setGuestList(
       currentGuestList.map((guest) => ({
         id: guest.id,

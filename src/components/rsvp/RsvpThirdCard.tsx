@@ -43,6 +43,9 @@ export const RsvpThirdCard = ({ guestList, setCurrentPage, setGuestList }: RsvpC
               <button className={`${guest.allergies.includes("lactose") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "lactose")}>
                 Laktóz
               </button>
+              <button className={`${guest.allergies.includes("milk") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "milk")}>
+                Tej
+              </button>
               <button className={`${guest.allergies.includes("gluten") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "gluten")}>
                 Glutén
               </button>
@@ -51,6 +54,9 @@ export const RsvpThirdCard = ({ guestList, setCurrentPage, setGuestList }: RsvpC
               </button>
               <button className={`${guest.allergies.includes("egg") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "egg")}>
                 Tojás
+              </button>
+              <button className={`${guest.allergies.includes("soy") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "soy")}>
+                Szója
               </button>
               <button className={`${guest.allergies.includes("fish") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "fish")}>
                 Tenger gyümölcsei & halak
@@ -77,7 +83,7 @@ export const RsvpThirdCard = ({ guestList, setCurrentPage, setGuestList }: RsvpC
   }, [currentGuestList, setCurrentPage, setGuestList]);
 
   const onNextPageClick = useCallback(() => {
-    setCurrentPage((currentPage) => (currentPage === 5 ? currentPage : currentPage + 1));
+    setCurrentPage((currentPage) => currentPage + 1);
     setGuestList(
       currentGuestList.map((guest) => ({
         id: guest.id,
