@@ -5,13 +5,13 @@
   align-items: center;
 }
 
-.initials {
+#layout .initials {
   height: 150px;
   width: 300px;
   padding: 80px 0 40px 0;
 }
 
-.title {
+#layout .title {
   font-size: 58px;
   text-transform: uppercase;
   font-weight: 300;
@@ -19,8 +19,8 @@
   text-align: center;
 }
 
-.details1,
-.details2 {
+#layout .details1,
+#layout .details2 {
   font-size: 21px;
   text-align: center;
   text-transform: uppercase;
@@ -31,37 +31,37 @@
 }
 
 @media (max-width: 1200px) {
-  .title {
+  #layout .title {
     width: 780px;
     font-size: 50px;
   }
 
-  .details1,
-  .details2 {
+  #layout .details1,
+  #layout .details2 {
     font-size: 18px;
   }
 }
 
 @media (max-width: 800px) {
-  .title {
+  #layout .title {
     width: 480px;
     font-size: 50px;
   }
 
-  .details1,
-  .details2 {
+  #layout .details1,
+  #layout .details2 {
     font-size: 18px;
   }
 }
 
 @media (max-width: 500px) {
-  .title {
+  #layout .title {
     width: 370px;
     font-size: 42px;
   }
 
-  .details1,
-  .details2 {
+  #layout .details1,
+  #layout .details2 {
     font-size: 18px;
   }
 }
