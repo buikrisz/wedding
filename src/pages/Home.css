@@ -169,6 +169,10 @@
   background-color: #bdb4a8;
 }
 
+.eyesomeFont {
+  font-family: "EyesomeScript", sans-serif;
+}
+
 @media (max-width: 1200px) {
   #home .mainImage {
     width: 780px;

@@ -27,7 +27,8 @@ export const Location = () => {
       </div>
       <div className="homeProgramDetails">
         <h5>
-          A Levendulás Rendezvényközpont Budapesttől körülbelül 45 percre van kocsival, így a sofőrszolgálat is egy jó opció lehet azoknak akik hazamennének.
+          A Levendulás Budapesttől körülbelül 45 percre van kocsival, de odafele számoljatok a péntek délutáni forgalommal. Így azoknak akik otthon szeretnék
+          tölteni az éjszakát a lagzi után, javasoljuk a sofőrszolgálatot.
         </h5>
         <h5>
           A helyszín csak limitált mennyiségben tud szállást biztosítani, így azoknak akik nem szeretnének hazamenni a lagzi után, javasoljuk, hogy a környéken

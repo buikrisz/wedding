@@ -7,6 +7,13 @@ body {
   color: #4e5b51;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+button {
+  font-family: "Cormorant Garamond", serif;
+}
+
+@font-face {
+  font-family: "EyesomeScript";
+  src: url("./assets/fonts/eyesome-duo-script.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }

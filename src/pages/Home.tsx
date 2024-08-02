@@ -24,7 +24,7 @@ export const Home = () => {
         </h2>
         <p className="separator"></p>
         <h2 className="location">
-          Levendulás Rendezvényközpont
+          Levendulás,
           <br />
           Inárcs
         </h2>
@@ -44,7 +44,7 @@ export const Home = () => {
         <h4>Polgári Szertartás & Vacsora & Lagzi - Levendulás, Inárcs</h4>
       </div>
       <div className="dressCodeSection">
-        <h3>Dresscode:</h3>
+        <h3 className="eyesomeFont">Dresscode:</h3>
         <h4>Esküvönkön az alábbi színek fognak dominálni. Örömmel vesszük, ha a ti öltözéketek is egyezik az esküvőnk tematikájával.</h4>
         <div className="dressCodeColorsSection">
           <div className="dressCodeColor dressCodeColor1"></div>
