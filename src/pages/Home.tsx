@@ -45,7 +45,7 @@ export const Home = () => {
       </div>
       <div className="dressCodeSection">
         <h3 className="eyesomeFont">Dresscode:</h3>
-        <h4>Esküvönkön az alábbi színek fognak dominálni. Örömmel vesszük, ha a ti öltözéketek is egyezik az esküvőnk tematikájával.</h4>
+        <h4>Esküvőnkön az alábbi színek fognak dominálni. Örömmel vesszük, ha a ti öltözéketek is egyezik az esküvőnk tematikájával.</h4>
         <div className="dressCodeColorsSection">
           <div className="dressCodeColor dressCodeColor1"></div>
           <div className="dressCodeColor dressCodeColor2"></div>
