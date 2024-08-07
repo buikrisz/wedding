@@ -4,7 +4,7 @@ import { Us, Hu } from "react-flags-select";
 import "./LanguageChooser.css";
 
 export const LanguageChooser = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLanguage = useCallback(
     (language: string) => {

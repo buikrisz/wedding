@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AllergenList, RsvpCardProps } from "../../pages/Rsvp";
 import Paper from "@mui/material/Paper";
 import emailjs from "@emailjs/browser";
@@ -47,7 +47,7 @@ type FormResult = {
 export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
   const { t } = useTranslation();
 
-  const allergenList = {
+  const allergenList = useMemo(() => ({
     none: t("rsvp3None"),
     lactose: t("rsvp3Lactose"),
     milk: t("rsvp3Milk"),
@@ -56,7 +56,7 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
     egg: t("rsvp3Egg"),
     soy: t("rsvp3Soy"),
     fish: t("rsvp3Fish"),
-  };
+  }), [t]);
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isAnimationStarted, setIsAnimationStarted] = useState(false);
@@ -150,7 +150,7 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
           console.log(err);
         });
     }
-  }, [formSubmitted, guestList, t]);
+  }, [allergenList, formSubmitted, guestList, t]);
 
   return formSubmitted ? (
     <div className="simpleCard finalCard formSubmitted">
