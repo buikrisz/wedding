@@ -1,0 +1,11 @@
+{
+  "home": "Home",
+  "photos": "Photos",
+  "program": "Program",
+  "location": "Location",
+  "rsvp": "RSVP",
+
+  "layoutDetails1": "2024 October 11 • Levendulás, Inárcs",
+  "layoutDetails2": "There is only {{day}} day left!",
+  "layoutDetails2Plural": "There are only {{days}} days left!"
+}

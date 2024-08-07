@@ -1,0 +1,9 @@
+.languageChooser {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  top: 0;
+  right: 0;
+  padding-top: 20px;
+  padding-right: 20px;
+}

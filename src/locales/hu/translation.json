@@ -1,0 +1,11 @@
+{
+  "home": "Főoldal",
+  "photos": "Fotók",
+  "program": "Program",
+  "location": "Megközelítés",
+  "rsvp": "Visszajelzés",
+
+  "layoutDetails1": "2024 Október 11 • Levendulás, Inárcs",
+  "layoutDetails2": "Már csak {{day}} nap van hátra!",
+  "layoutDetails2Plural": "Már csak {{days}} nap van hátra!"
+}
