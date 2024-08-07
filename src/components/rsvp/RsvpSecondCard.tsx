@@ -2,8 +2,11 @@ import { useCallback, useState } from "react";
 import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import "./RsvpSecondCard.css";
+import { useTranslation } from "react-i18next";
 
 export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
+  const { t } = useTranslation();
+
   const [currentGuestList, setCurrentGuestList] = useState<GuestInformation[]>(guestList ?? []);
 
   const onAcceptanceClicked = useCallback(
@@ -22,16 +25,16 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
           <h3>{guest.name}</h3>
           <div className="attendanceConfirmationButtons">
             <button onClick={() => onAcceptanceClicked(guest.id, true)} className={`attendanceAccept${guest.attends ? " selected" : ""}`}>
-              Jövök
+              {t("rsvp2Attending")}
             </button>
             <button onClick={() => onAcceptanceClicked(guest.id, false)} className={`attendanceDecline${!guest.attends ? " selected" : ""}`}>
-              Nem jövök
+              {t("rsvp2NotAttending")}
             </button>
           </div>
         </div>
       );
     });
-  }, [currentGuestList, onAcceptanceClicked]);
+  }, [currentGuestList, onAcceptanceClicked, t]);
 
   const onPrevPageClick = useCallback(() => {
     setCurrentPage((currentPage) => (currentPage === 0 ? currentPage : currentPage - 1));
@@ -71,21 +74,19 @@ export const RsvpSecondCard = ({ setCurrentPage, setGuestList, guestList }: Rsvp
 
   return (
     <div className="simpleCard">
-      <h3 className="title">Házasságkötésünk napja</h3>
+      <h3 className="title">{t("rsvp2Title")}</h3>
       <div className="subtitleWithIcon">
         <FaRegCalendarAlt />
-        <h3 className="subtitle">2024. Október 11, Péntek - 13:00</h3>
+        <h3 className="subtitle">{t("rsvp2SubtitleWithIcon")}</h3>
       </div>
-      <h3 className="subtitle">
-        Kedves Családunk és Barátaink! Ezúton szeretnénk meghívni az esküvőnkre, reméljük Velünk tudsz tartani. Várjuk a visszajelzésed!
-      </h3>
+      <h3 className="subtitle">{t("rsvp2SubtitleWithoutIcon")}</h3>
       {renderContent()}
       <div className="rsvpActionButtons">
         <button className="rsvpActionButton" onClick={onPrevPageClick}>
-          Vissza
+          {t("rsvpBack")}
         </button>
         <button className="rsvpActionButton" onClick={onNextPageClick}>
-          Tovább
+          {t("rsvpNext")}
         </button>
       </div>
     </div>

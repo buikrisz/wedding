@@ -7,5 +7,70 @@
 
   "layoutDetails1": "2024 Október 11 • Levendulás, Inárcs",
   "layoutDetails2": "Már csak {{day}} nap van hátra!",
-  "layoutDetails2Plural": "Már csak {{days}} nap van hátra!"
+  "layoutDetails2Plural": "Már csak {{days}} nap van hátra!",
+
+  "homeDate": "Október 11",
+  "homeWelcomeText": "Kedves Családunk és Barátaink! Ezúton szeretnénk meghívni az esküvőnkre, reméljük Velünk tudsz tartani. Várjuk a visszajelzésed!",
+  "homeProgramLeft": "Egyházi Szertartás - Jáki Kápolna",
+  "homeProgramLeft2": "Polgári Szertartás & Vacsora & Lagzi - Levendulás, Inárcs",
+  "homeDresscodeText": "Esküvőnkön az alábbi színek fognak dominálni. Örömmel vesszük, ha a ti öltözéketek is egyezik az esküvőnk tematikájával.",
+
+  "photosText": "Fotók hamarosan érkeznek!",
+
+  "locationChurchText": "A Jáki kápolna a Vajdahunyad Várban helyezkedik el. Aki kocsival érkezik, azoknak javasolt a Városliget körül keresni parkolóhelyet, akár az állatkert előtt, akár a Hermina úton.",
+  "locationCivilText1": "A Levendulás Budapesttől körülbelül 45 percre van kocsival, de odafele számoljatok a péntek délutáni forgalommal. Így azoknak akik otthon szeretnék tölteni az éjszakát a lagzi után, javasoljuk a sofőrszolgálatot.",
+  "locationCivilText2": "A helyszín csak limitált mennyiségben tud szállást biztosítani, így azoknak akik nem szeretnének hazamenni a lagzi után, javasoljuk, hogy a környéken (Inárcson) nézzenek szállás lehetőséget. Szükség esetén tudunk segíteni a szállás keresésben.",
+
+  "rsvpNext": "Tovább",
+  "rsvpBack": "Vissza",
+
+  "rsvp1Title": "Dominika & Krisztián Esküvője",
+  "rsvp1Subtitle": "Kérjük jelezz vissza nekünk, hogy részt tudsz-e venni családoddal/pároddal esküvőnkön, az alábbi adatokat kitöltve.",
+  "rsvp1ExtraButton": "Extra vendég hozzáadása",
+  "rsvp1MainLabel": "Teljes név",
+  "rsvp1ExtraLabel": "Extra vendég",
+  "rsvp1ValidationError": "Kérlek add meg a neved!",
+
+  "rsvp2Title": "Házasságkötésünk napja",
+  "rsvp2SubtitleWithIcon": "2024. Október 11, Péntek - 13:00",
+  "rsvp2SubtitleWithoutIcon": "Kedves Családunk és Barátaink! Ezúton szeretnénk meghívni az esküvőnkre, reméljük Velünk tudsz tartani. Várjuk a visszajelzésed!",
+  "rsvp2Attending": "Jövök",
+  "rsvp2NotAttending": "Nem jövök",
+
+  "rsvp3Title": "Van valamilyen ételintoleranciád & allergiád?",
+  "rsvp3None": "Nincs",
+  "rsvp3Lactose": "Laktóz",
+  "rsvp3Milk": "Tej",
+  "rsvp3Gluten": "Glutén",
+  "rsvp3Nuts": "Mogyoró és diófélék",
+  "rsvp3Egg": "Tojás",
+  "rsvp3Soy": "Szója",
+  "rsvp3Fish": "Tenger gyümölcsei & halak",
+
+  "rsvp4TitleDiet": "Van bármilyen speciális étrended (vegetáriánus, vegán, stb.)? Ha igen, milyen?",
+  "rsvp4TitleMusic": "Oszd meg velünk a kedvenc zeneszámod amire szívesen buliznál...",
+  "rsvp4SpecialDiet": "Speciális étrend",
+  "rsvp4MusicRecommendation": "Zene javaslatok",
+
+  "rsvp5Title": "Szeretnél megszállni a helyszínen vagy a környéken?",
+  "rsvp5Subtitle1": "Amennyiben több igény érkezik a szállásra, mint amennyit a helyszín tud biztosítani, legfeljebb javasolni tudunk a környéken (Inárcson) szállás lehetőségeket.",
+  "rsvp5Subtitle2": "A helyszín viszonylag közel van Budapesthez, szóval a nem vidékről érkezők számára akár a sofőrszolgálatot is tudjuk javasolni.",
+  "rsvp5AccomodationAccept": "Szeretnék szállást",
+  "rsvp5AccomodationDecline": "Nem szeretnék szállást",
+
+  "rsvp6TitleDone": "Köszönjük a visszajelzést!",
+  "rsvp6Title": "Utolsó lépés! Kérlek ellenőrizd le a megadott adataid, és ha minden megfelel, kattints a Küldés gombra!",
+  "rsvp6Name": "Név",
+  "rsvp6Attending": "Részt vesz az esküvőn",
+  "rsvp6AttendingYes": "Igen",
+  "rsvp6AttendingNo": "Nem",
+  "rsvp6Allergies": "Intolerancia/allergia",
+  "rsvp6None": "Nincs",
+  "rsvp6SpecialDiet": "Különleges étrend",
+  "rsvp6Accomodation": "Szállás igény",
+  "rsvp6AccYes": "Van",
+  "rsvp6AccNo": "Nincs",
+  "rsvp6Music": "Javasolt zene",
+  "rsvp6ErrorMessage": "Hiba történt. Kérlek próbáld újra később.",
+  "rsvp6MailSent": "Email elküldve"
 }

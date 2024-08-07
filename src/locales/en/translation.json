@@ -7,5 +7,70 @@
 
   "layoutDetails1": "2024 October 11 • Levendulás, Inárcs",
   "layoutDetails2": "There is only {{day}} day left!",
-  "layoutDetails2Plural": "There are only {{days}} days left!"
+  "layoutDetails2Plural": "There are only {{days}} days left!",
+
+  "homeDate": "October 11",
+  "homeWelcomeText": "Dear Friends and Family! We are delighted to invite you to our wedding and hope you can join us in celebrating this special occasion. We eagerly await your response!",
+  "homeProgramLeft": "Church Ceremony - Jáki Kápolna",
+  "homeProgramLeft2": "Civil Ceremony & Dinner & Party - Levendulás, Inárcs",
+  "homeDresscodeText": "Our wedding will highlight the following colors. We would be thrilled if your attire reflects the theme of our event.",
+
+  "photosText": "Photos coming soon!",
+
+  "locationChurchText": "The Jáki Chapel is located within the Vajdahunyad Castle. For those arriving by car, we recommend looking for parking around City Park, either in front of the zoo or on Hermina út.",
+  "locationCivilText1": "Levendulás is approximately a 45-minute drive from Budapest, though you should account for traffic on Friday afternoons. Therefore, for those who wish to spend the night at home after the wedding, we recommend using a chauffeur service.",
+  "locationCivilText2": "The venue can provide only a limited number of accommodations. Therefore, for those who prefer not to return home after the wedding, we recommend looking for lodging options in the nearby area (Inárcs). If needed, we are happy to assist with finding accommodations.",
+
+  "rsvpNext": "Next",
+  "rsvpBack": "Back",
+
+  "rsvp1Title": "Dominika & Krisztián's Wedding",
+  "rsvp1Subtitle": "Please let us know if you and your family/partner will be able to attend our wedding by filling out the following information.",
+  "rsvp1ExtraButton": "Add extra guest",
+  "rsvp1MainLabel": "Full Name",
+  "rsvp1ExtraLabel": "Extra guest",
+  "rsvp1ValidationError": "Please fill out your name!",
+
+  "rsvp2Title": "Our Wedding Day",
+  "rsvp2SubtitleWithIcon": "2024. October 11, Friday - 13:00",
+  "rsvp2SubtitleWithoutIcon": "Dear Family and Friends! We are pleased to invite you to our wedding and hope you can join us for this special occasion. We look forward to your response!",
+  "rsvp2Attending": "Attending",
+  "rsvp2NotAttending": "Not attending",
+
+  "rsvp3Title": "Do you have any food intolerances or allergies?",
+  "rsvp3None": "None",
+  "rsvp3Lactose": "Lactose",
+  "rsvp3Milk": "Milt",
+  "rsvp3Gluten": "Gluten",
+  "rsvp3Nuts": "Nuts",
+  "rsvp3Egg": "Egg",
+  "rsvp3Soy": "Soy",
+  "rsvp3Fish": "Fish",
+
+  "rsvp4TitleDiet": "Do you have any special dietary requirements (e.g., vegetarian, vegan, etc.)? If so, please specify.",
+  "rsvp4TitleMusic": "Please share with us your favorite song that you would enjoy dancing to...",
+  "rsvp4SpecialDiet": "Special diet",
+  "rsvp4MusicRecommendation": "Music suggestions",
+
+  "rsvp5Title": "Would you like to stay at the venue or in the surrounding area?",
+  "rsvp5Subtitle1": "If there are more accommodation requests than the venue can provide, we can offer recommendations for lodging options in the surrounding area (Inárcs).",
+  "rsvp5Subtitle2": "The venue is relatively close to Budapest, so for those coming from outside the city, we can also recommend using a chauffeur service.",
+  "rsvp5AccomodationAccept": "I'd like",
+  "rsvp5AccomodationDecline": "I don't need",
+
+  "rsvp6TitleDone": "Thank you for your response!",
+  "rsvp6Title": "Final step! Please review the information you have provided, and if everything is correct, click the Submit button!",
+  "rsvp6Name": "Name",
+  "rsvp6Attending": "Attending",
+  "rsvp6AttendingYes": "Yes",
+  "rsvp6AttendingNo": "No",
+  "rsvp6Allergies": "Intolerance/allergy",
+  "rsvp6None": "None",
+  "rsvp6SpecialDiet": "Special diet",
+  "rsvp6Accomodation": "Accomodation",
+  "rsvp6AccYes": "Need",
+  "rsvp6AccNo": "Do not need",
+  "rsvp6Music": "Music suggestions",
+  "rsvp6ErrorMessage": "An error occurred. Please try again later.",
+  "rsvp6MailSent": "Mail sent"
 }

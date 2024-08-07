@@ -1,8 +1,11 @@
 import { useCallback, useState } from "react";
 import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
 import "./RsvpThirdCard.css";
+import { useTranslation } from "react-i18next";
 
 export const RsvpThirdCard = ({ guestList, setCurrentPage, setGuestList }: RsvpCardProps) => {
+  const { t } = useTranslation();
+
   const [currentGuestList, setCurrentGuestList] = useState<GuestInformation[]>(guestList ?? []);
 
   const onAllergenClicked = useCallback(
@@ -38,34 +41,34 @@ export const RsvpThirdCard = ({ guestList, setCurrentPage, setGuestList }: RsvpC
             <h3>{guest.name}:</h3>
             <div className="allergenList">
               <button className={`${guest.allergies.includes("none") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "none")}>
-                Nincs
+                {t("rsvp3None")}
               </button>
               <button className={`${guest.allergies.includes("lactose") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "lactose")}>
-                Laktóz
+                {t("rsvp3Lactose")}
               </button>
               <button className={`${guest.allergies.includes("milk") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "milk")}>
-                Tej
+                {t("rsvp3Milk")}
               </button>
               <button className={`${guest.allergies.includes("gluten") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "gluten")}>
-                Glutén
+                {t("rsvp3Gluten")}
               </button>
               <button className={`${guest.allergies.includes("nuts") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "nuts")}>
-                Mogyoró és diófélék
+                {t("rsvp3Nuts")}
               </button>
               <button className={`${guest.allergies.includes("egg") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "egg")}>
-                Tojás
+                {t("rsvp3Egg")}
               </button>
               <button className={`${guest.allergies.includes("soy") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "soy")}>
-                Szója
+                {t("rsvp3Soy")}
               </button>
               <button className={`${guest.allergies.includes("fish") ? "selected" : ""}`} onClick={() => onAllergenClicked(guest.id, "fish")}>
-                Tenger gyümölcsei & halak
+                {t("rsvp3Fish")}
               </button>
             </div>
           </div>
         );
       });
-  }, [currentGuestList, onAllergenClicked]);
+  }, [currentGuestList, onAllergenClicked, t]);
 
   const onPrevPageClick = useCallback(() => {
     setCurrentPage((currentPage) => (currentPage === 0 ? currentPage : currentPage - 1));
@@ -99,14 +102,14 @@ export const RsvpThirdCard = ({ guestList, setCurrentPage, setGuestList }: RsvpC
 
   return (
     <div className="simpleCard">
-      <h3 className="title">Van valamilyen ételintoleranciád & allergiád?</h3>
+      <h3 className="title">{t("rsvp3Title")}</h3>
       {renderContent()}
       <div className="rsvpActionButtons">
         <button className="rsvpActionButton" onClick={onPrevPageClick}>
-          Vissza
+          {t("rsvpBack")}
         </button>
         <button className="rsvpActionButton" onClick={onNextPageClick}>
-          Tovább
+          {t("rsvpNext")}
         </button>
       </div>
     </div>

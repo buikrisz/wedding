@@ -44,17 +44,6 @@ export type AllergenList = {
   fish: string;
 };
 
-export const allergenList = {
-  none: "Nincs",
-  lactose: "Laktóz",
-  milk: "Tej",
-  gluten: "Glutén",
-  nuts: "Mogyoró és diófélék",
-  egg: "Tojás",
-  soy: "Szója",
-  fish: "Tenger gyümölcsei & halak",
-};
-
 export const Rsvp = () => {
   const navigate = useNavigate();
 

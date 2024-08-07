@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { AllergenList, allergenList, RsvpCardProps } from "../../pages/Rsvp";
+import { AllergenList, RsvpCardProps } from "../../pages/Rsvp";
 import Paper from "@mui/material/Paper";
 import emailjs from "@emailjs/browser";
 import "./RsvpFinalCard.css";
 import apiKey from "../../emailkey";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useTranslation } from "react-i18next";
 
 type FormResult = {
   name0: string;
@@ -44,6 +45,19 @@ type FormResult = {
 };
 
 export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
+  const { t } = useTranslation();
+
+  const allergenList = {
+    none: t("rsvp3None"),
+    lactose: t("rsvp3Lactose"),
+    milk: t("rsvp3Milk"),
+    gluten: t("rsvp3Gluten"),
+    nuts: t("rsvp3Nuts"),
+    egg: t("rsvp3Egg"),
+    soy: t("rsvp3Soy"),
+    fish: t("rsvp3Fish"),
+  };
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isAnimationStarted, setIsAnimationStarted] = useState(false);
 
@@ -51,23 +65,39 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
     return guestList.map((guest) => {
       return (
         <Paper elevation={3} sx={{ width: 200, height: 350, padding: 3, backgroundColor: "#4e5b51", color: "#fff" }}>
-          <h3>Név: {guest.name}</h3>
-          <h4>Részt vesz az esküvőn: {guest.attends ? "Igen" : "Nem"}</h4>
+          <h3>
+            {t("rsvp5Name")}: {guest.name}
+          </h3>
+          <h4>
+            {t("rsvp5Attending")}: {guest.attends ? t("rsvp6AttendingYes") : t("rsvp6AttendingNo")}
+          </h4>
           {guest.attends && (
             <h4>
-              Intolerancia/allergia:{" "}
+              {t("rsvp5Allergies")}:
               {guest.allergies == null || guest.allergies.length === 0 || guest.allergies[0] === "none"
-                ? "Nincs"
+                ? t("rsvp6None")
                 : guest.allergies.map((allergy) => allergenList[allergy as keyof AllergenList]).join(" & ")}
             </h4>
           )}
-          {guest.attends && <h4>Különleges étrend: {guest.diet == null || guest.diet.length === 0 ? "Nincs" : guest.diet}</h4>}
-          {guest.attends && <h4>Szállás igény: {guest.accomodation ? "Van" : "Nincs"}</h4>}
-          {guest.attends && guest.id === "mainGuest" && <h4>Javasolt zene: {guest.music}</h4>}
+          {guest.attends && (
+            <h4>
+              {t("rsvp6SpecialDiet")}: {guest.diet == null || guest.diet.length === 0 ? t("rsvp6None") : guest.diet}
+            </h4>
+          )}
+          {guest.attends && (
+            <h4>
+              {t("rsvp6Accomodation")}: {guest.accomodation ? t("rsvp6AccYes") : t("rsvp6AccNo")}
+            </h4>
+          )}
+          {guest.attends && guest.id === "mainGuest" && (
+            <h4>
+              {t("rsvp6Music")}: {guest.music}
+            </h4>
+          )}
         </Paper>
       );
     });
-  }, [guestList]);
+  }, [guestList, t]);
 
   const onPrevPageClick = useCallback(() => {
     const isAnyoneAttending = guestList?.some((guest) => guest.attends);
@@ -112,30 +142,30 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
         .send(apiKey.SERVICE_ID, apiKey.SERVICE_REQUEST_TEMPLATE_ID, formResult, apiKey.PUBLIC_KEY)
         .then(() => {
           setIsAnimationStarted(false);
-          console.log("Email elküldve");
+          console.log(t("rsvp6MailSent"));
         })
         .catch((err: string) => {
           setIsAnimationStarted(false);
-          alert("Hiba történt. Kérlek próbáld újra később.");
+          alert(t("rsvp6ErrorMessage"));
           console.log(err);
         });
     }
-  }, [formSubmitted, guestList]);
+  }, [formSubmitted, guestList, t]);
 
   return formSubmitted ? (
     <div className="simpleCard finalCard formSubmitted">
-      {isAnimationStarted ? <CircularProgress color="inherit" /> : <h3 className="title">Köszönjük a visszajelzést!</h3>}
+      {isAnimationStarted ? <CircularProgress color="inherit" /> : <h3 className="title">{t("rsvp6TitleDone")}</h3>}
     </div>
   ) : (
     <div className="simpleCard finalCard">
-      <h3 className="title">Utolsó lépés! Kérlek ellenőrizd le a megadott adataid, és ha minden megfelel, kattints a Küldés gombra!</h3>
+      <h3 className="title">{t("rsvp6Title")}</h3>
       <div className="finalGuestCards">{renderContent()}</div>
       <div className="rsvpActionButtons">
         <button className="rsvpActionButton" onClick={onPrevPageClick}>
-          Vissza
+          {t("rsvpBack")}
         </button>
         <button className="rsvpActionButton" onClick={onNextPageClick}>
-          Küldés
+          {t("rsvpNext")}
         </button>
       </div>
     </div>

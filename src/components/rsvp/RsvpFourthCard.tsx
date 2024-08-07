@@ -1,8 +1,11 @@
 import { useCallback, useState } from "react";
 import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
 import { CustomTextField } from "./CustomTextField";
+import { useTranslation } from "react-i18next";
 
 export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardType }: RsvpCardProps) => {
+  const { t } = useTranslation();
+
   const [currentGuestList, setCurrentGuestList] = useState<GuestInformation[]>(guestList ?? []);
 
   const handleFieldChange = useCallback(
@@ -27,7 +30,7 @@ export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardTy
               <div className="dietTextArea">
                 <CustomTextField
                   id="outlined-multiline-static"
-                  label="Speciális étrend"
+                  label={t("rsvp4SpecialDiet")}
                   className="guestDiet"
                   color="4e5b51"
                   value={guest.diet}
@@ -43,7 +46,7 @@ export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardTy
           <div className="dietTextArea">
             <CustomTextField
               id="outlined-multiline-static"
-              label="Zene javaslatok"
+              label={t("rsvp4MusicRecommendation")}
               className="guestMusic"
               color="4e5b51"
               value={currentGuestList[0].music}
@@ -53,7 +56,7 @@ export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardTy
         </div>
       );
     }
-  }, [cardType, currentGuestList, handleFieldChange]);
+  }, [cardType, currentGuestList, handleFieldChange, t]);
 
   const onPrevPageClick = useCallback(() => {
     setCurrentPage((currentPage) => (currentPage === 0 ? currentPage : currentPage - 1));
@@ -87,18 +90,14 @@ export const RsvpFourthCard = ({ setCurrentPage, setGuestList, guestList, cardTy
 
   return (
     <div className="simpleCard">
-      <h3 className="title">
-        {cardType === "diet"
-          ? "Van bármilyen speciális étrended (vegetáriánus, vegán, stb.)? Ha igen, milyen?"
-          : "Oszd meg velünk a kedvenc zeneszámod amire szívesen buliznál..."}
-      </h3>
+      <h3 className="title">{cardType === "diet" ? t("rsvp4TitleDiet") : t("rsvp4TitleMusic")}</h3>
       {renderContent()}
       <div className="rsvpActionButtons">
         <button className="rsvpActionButton" onClick={onPrevPageClick}>
-          Vissza
+          {t("rsvpBack")}
         </button>
         <button className="rsvpActionButton" onClick={onNextPageClick}>
-          Tovább
+          {t("rsvpNext")}
         </button>
       </div>
     </div>

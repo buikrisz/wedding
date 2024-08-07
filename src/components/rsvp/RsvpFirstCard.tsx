@@ -3,8 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 import { CustomTextField } from "./CustomTextField";
 import "./RsvpFirstCard.css";
 import { GuestInformation, RsvpCardProps } from "../../pages/Rsvp";
+import { useTranslation } from "react-i18next";
 
 export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpCardProps) => {
+  const { t } = useTranslation();
+
   const [validationError, setValidationError] = useState<string>("");
 
   const mainGuest: GuestInformation = useMemo(
@@ -55,7 +58,7 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
           <div className="removeGuestText" key={field.id}>
             <CustomTextField
               id={`guest-${field.id}`}
-              label="Extra vendég"
+              label={t("rsvp1ExtraLabel")}
               className="guestNameText"
               color="4e5b51"
               value={field.name}
@@ -70,19 +73,19 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
         return undefined;
       }
     });
-  }, [guestFields, handleFieldChange, onRemoveGuestField]);
+  }, [guestFields, handleFieldChange, onRemoveGuestField, t]);
 
   const validateFields = useCallback(() => {
     const isMainGuestNameEmpty = guestFields.find((field) => field.id === "mainGuest" && !field.name.trim());
 
     if (isMainGuestNameEmpty) {
-      setValidationError("Kérlek add meg a neved!");
+      setValidationError(t("rsvp1ValidationError"));
       return false;
     } else {
       setValidationError("");
       return true;
     }
-  }, [guestFields]);
+  }, [guestFields, t]);
 
   const onNextPageClick = useCallback(() => {
     const isValidated = validateFields();
@@ -107,12 +110,12 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
 
   return (
     <div className="simpleCard">
-      <h3 className="title">Dominika & Krisztián Esküvője</h3>
-      <h3 className="subtitle">Kérjük jelezz vissza nekünk, hogy részt tudsz-e venni családoddal/pároddal esküvőnkön, az alábbi adatokat kitöltve.</h3>
+      <h3 className="title">{t("rsvp1Title")}</h3>
+      <h3 className="subtitle">{t("rsvp1Subtitle")}</h3>
       <CustomTextField
         required
         id="outlined-required"
-        label="Teljes név"
+        label={t("rsvp1MainLabel")}
         className="nameText"
         color="4e5b51"
         value={guestFields.find((field) => field.id === "mainGuest")?.name || ""}
@@ -121,10 +124,10 @@ export const RsvpFirstCard = ({ setCurrentPage, setGuestList, guestList }: RsvpC
       {validationError != null && validationError.length > 0 && <h4 className="validationError">*{validationError}</h4>}
       {renderGuestFields}
       <button className="rsvpActionButton" onClick={onAddNewGuest}>
-        Extra vendég hozzáadása
+        {t("rsvp1ExtraButton")}
       </button>
       <button className="rsvpActionButton" onClick={onNextPageClick}>
-        Tovább
+        {t("rsvpNext")}
       </button>
     </div>
   );

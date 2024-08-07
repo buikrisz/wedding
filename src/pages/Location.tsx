@@ -1,8 +1,10 @@
 import React from "react";
 import { GoogleMapComponent } from "../components";
+import { useTranslation } from "react-i18next";
 import "./Location.css";
 
 export const Location = () => {
+  const { t } = useTranslation();
   const jaki = { lat: 47.51579, lng: 19.08271 };
   const levendulas = { lat: 47.2722, lng: 19.30506 };
 
@@ -10,30 +12,21 @@ export const Location = () => {
     <div id="location">
       <div className="homeProgram">
         <h4 className="homeProgramLeft">1:00 PM - 2:00 PM</h4>
-        <h4>Egyházi Szertartás - Jáki Kápolna</h4>
+        <h4>{t("homeProgramLeft")}</h4>
       </div>
       <div className="homeProgramDetails">
-        <h5>
-          A Jáki kápolna a Vajdahunyad Várban helyezkedik el. Aki kocsival érkezik, azoknak javasolt a Városliget körül keresni parkolóhelyet, akár az állatkert
-          előtt, akár a Hermina úton.
-        </h5>
+        <h5>{t("locationChurchText")}</h5>
       </div>
       <div className="mapContainer">
         <GoogleMapComponent center={jaki} zoom={15} />
       </div>
       <div className="homeProgram lastProgram">
         <h4 className="homeProgramLeft">3:30 PM - 5:00 AM</h4>
-        <h4>Polgári Szertartás & Vacsora & Lagzi - Levendulás, Inárcs</h4>
+        <h4>{t("homeProgramLeft2")}</h4>
       </div>
       <div className="homeProgramDetails">
-        <h5>
-          A Levendulás Budapesttől körülbelül 45 percre van kocsival, de odafele számoljatok a péntek délutáni forgalommal. Így azoknak akik otthon szeretnék
-          tölteni az éjszakát a lagzi után, javasoljuk a sofőrszolgálatot.
-        </h5>
-        <h5>
-          A helyszín csak limitált mennyiségben tud szállást biztosítani, így azoknak akik nem szeretnének hazamenni a lagzi után, javasoljuk, hogy a környéken
-          (Inárcson) nézzenek szállás lehetőséget. Szükség esetén tudunk segíteni a szállás keresésben.
-        </h5>
+        <h5>{t("locationCivilText1")}</h5>
+        <h5>{t("locationCivilText2")}</h5>
       </div>
       <div className="mapContainer">
         <GoogleMapComponent center={levendulas} zoom={13} />
