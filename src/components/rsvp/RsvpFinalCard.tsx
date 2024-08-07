@@ -47,16 +47,19 @@ type FormResult = {
 export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
   const { t } = useTranslation();
 
-  const allergenList = useMemo(() => ({
-    none: t("rsvp3None"),
-    lactose: t("rsvp3Lactose"),
-    milk: t("rsvp3Milk"),
-    gluten: t("rsvp3Gluten"),
-    nuts: t("rsvp3Nuts"),
-    egg: t("rsvp3Egg"),
-    soy: t("rsvp3Soy"),
-    fish: t("rsvp3Fish"),
-  }), [t]);
+  const allergenList = useMemo(
+    () => ({
+      none: t("rsvp3None"),
+      lactose: t("rsvp3Lactose"),
+      milk: t("rsvp3Milk"),
+      gluten: t("rsvp3Gluten"),
+      nuts: t("rsvp3Nuts"),
+      egg: t("rsvp3Egg"),
+      soy: t("rsvp3Soy"),
+      fish: t("rsvp3Fish"),
+    }),
+    [t]
+  );
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isAnimationStarted, setIsAnimationStarted] = useState(false);
@@ -97,7 +100,7 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
         </Paper>
       );
     });
-  }, [guestList, t]);
+  }, [allergenList, guestList, t]);
 
   const onPrevPageClick = useCallback(() => {
     const isAnyoneAttending = guestList?.some((guest) => guest.attends);
