@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { Us, Hu } from "react-flags-select";
 import "./LanguageChooser.css";
 
 export const LanguageChooser = () => {
@@ -14,12 +15,9 @@ export const LanguageChooser = () => {
 
   return (
     <div className="languageChooser">
-      <button className="language" onClick={() => changeLanguage("hu")}>
-        HUN
-      </button>
-      <button className="language" onClick={() => changeLanguage("en")}>
-        EN
-      </button>
+      <Hu className="languageButton" onClick={() => changeLanguage("hu")} />
+      <div className="languageButtonSeparator"></div>
+      <Us className="languageButton" onClick={() => changeLanguage("en")} />
     </div>
   );
 };
