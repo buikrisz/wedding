@@ -76,7 +76,7 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
           </h4>
           {guest.attends && (
             <h4>
-              {t("rsvp6Allergies")}:
+              {t("rsvp6Allergies")}:{" "}
               {guest.allergies == null || guest.allergies.length === 0 || guest.allergies[0] === "none"
                 ? t("rsvp6None")
                 : guest.allergies.map((allergy) => allergenList[allergy as keyof AllergenList]).join(" & ")}
