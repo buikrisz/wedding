@@ -18,10 +18,11 @@
   "photosText": "Fotók hamarosan érkeznek!",
 
   "locationChurchText": "A Jáki kápolna a Vajdahunyad Várban helyezkedik el. Aki kocsival érkezik, azoknak javasolt a Városliget körül keresni parkolóhelyet, akár az állatkert előtt, akár a Hermina úton.",
-  "locationCivilText1": "A Levendulás Budapesttől körülbelül 45 percre van kocsival, de odafele számoljatok a péntek délutáni forgalommal. Így azoknak akik otthon szeretnék tölteni az éjszakát a lagzi után, javasoljuk a sofőrszolgálatot.",
+  "locationCivilText1": "A Levendulás Budapesttől körülbelül 45 percre van kocsival, de odafele számoljatok a péntek délutáni forgalommal. Azoknak akik otthon szeretnék tölteni az éjszakát a lagzi után, javasoljuk a sofőrszolgálatot.",
   "locationCivilText2": "A helyszín csak limitált mennyiségben tud szállást biztosítani, így azoknak akik nem szeretnének hazamenni a lagzi után, javasoljuk, hogy a környéken (Inárcson) nézzenek szállás lehetőséget. Szükség esetén tudunk segíteni a szállás keresésben.",
 
   "rsvpNext": "Tovább",
+  "rsvpSubmit": "Küldés",
   "rsvpBack": "Vissza",
 
   "rsvp1Title": "Dominika & Krisztián Esküvője",

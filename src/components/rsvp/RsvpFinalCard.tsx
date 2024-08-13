@@ -168,7 +168,7 @@ export const RsvpFinalCard = ({ setCurrentPage, guestList }: RsvpCardProps) => {
           {t("rsvpBack")}
         </button>
         <button className="rsvpActionButton" onClick={onNextPageClick}>
-          {t("rsvpNext")}
+          {t("rsvpSubmit")}
         </button>
       </div>
     </div>
