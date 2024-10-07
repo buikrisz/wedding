@@ -21,7 +21,7 @@ export const Location = () => {
         <GoogleMapComponent center={jaki} zoom={15} />
       </div>
       <div className="homeProgram lastProgram">
-        <h4 className="homeProgramLeft">3:30 PM - 5:00 AM</h4>
+        <h4 className="homeProgramLeft">3:00 PM - 5:00 AM</h4>
         <h4>{t("homeProgramLeft2")}</h4>
       </div>
       <div className="homeProgramDetails">
